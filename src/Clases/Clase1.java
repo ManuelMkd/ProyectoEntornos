@@ -1,37 +1,27 @@
 package Clases;
 import java.util.Scanner;
-public class Clase1 {
+import javax.swing.*;
+public class Uso_Coche {
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
-        String genero = "";
-        do {
+        //instanciamos un objeto de la clase coche
+        Coche Seat=new Coche();
 
+        Seat.establece_color(JOptionPane.showInputDialog("Introduce color. "));
+        System.out.println(Seat.dime_color());
 
-            System.out.println("¿Eres macho, hembra o helicoptero apache?");
-            genero = sc.next();
-            //hombre: altura - 110
-            //mujer: altura - 120
+        System.out.println(Seat.dime_datos_generales());
 
-        } while (!genero.equalsIgnoreCase("Macho") &&
-                !genero.equalsIgnoreCase("Hembra") &&
-                !genero.equalsIgnoreCase("helicopteroApache"));
+        Seat.configura_asientos(JOptionPane.showInputDialog("¿Tiene asientos de cuero?(si/no)"));
+        System.out.println(Seat.dime_asientos());
 
-        System.out.println("¿Introduce  tu altura?");
-        int altura = sc.nextInt();
+        Seat.configura_climatizador(JOptionPane.showInputDialog("¿Tiene climamtizador?(si/no)"));
+        System.out.println(Seat.dime_climatizador());
 
-        if (genero.equalsIgnoreCase("macho")) {
-            int peso = altura - 110;
-            System.out.println("Tu peso ideal sería:" + peso);
+        //no hace falta primnero establecerlo por que este metodo hacia las dos cosas a la vez
+        System.out.println(Seat.dime_peso_coche());
 
-        } else if (genero.equalsIgnoreCase("hembra")) {
-            int peso = altura - 120;
-            System.out.println("Tu peso ideal sería: " + peso);
-        } else if (genero.equalsIgnoreCase("helicopteroApache")) {
-            int peso = altura + 420;
-            System.out.println("Tu peso ideal sería: " + peso);
-        }
-
-
+        System.out.println("El precio final del coches es " + Seat.precio_coche());
     }
 }
